@@ -1,0 +1,27 @@
+version: "1"
+deployment: 
+  aws_account: "travel"
+  tribe: "hotel"
+sonarqube:
+  sonar_scanner_opts: "-Xmx2048m"
+build:
+  platform: "dotnetcore"
+  solution_file: "Tavisca.Hotel.Events.sln"
+  reponame: "nextgen-hotel-events"
+  platform_version: "8.0"
+  code_coverage:
+    class_filter: null
+    assembly_filter: ""
+  lambda:
+    - build_project_Application-1:
+        name: "hotel-content-events-lambda"
+        path: "src/Tavisca.Hotel.ContentEventsLambda"
+        file: "Tavisca.Hotel.ContentEventsLambda.csproj"
+test:
+  report_generator_path: "src/Tavisca.Hotel.ContentEvents.Tests"
+  lambda:
+    - test_project_Application-1:
+        name: "hotel-content-events-lambda"
+        path: "src/Tavisca.Hotel.ContentEvents.Tests"
+        file: "Tavisca.Hotel.ContentEvents.Tests.csproj"
+        
