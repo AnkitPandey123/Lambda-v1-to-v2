@@ -1,0 +1,18 @@
+Parameters:
+  Environment:
+    # Environment Variables fetched from Lambda configuration:
+    EnvironmentVariables:
+       TRIGGER: CLOUDWATCH
+       ENVIRONMENT: QA
+    # FunctionKmsKeyArn kept empty as requested
+    FunctionKmsKeyArn: ""
+  LambdaConfigurations:
+    # LambdaRuntime fetched from Lambda configuration
+    LambdaRuntime: dotnet8
+    # LambdaMemorySize fetched from Lambda configuration
+    LambdaMemorySize: 128
+  # Tags fetched from Lambda configuration:
+  Tags:
+     Environment: qa
+     InfraOwner: hotel-infra-owners@tavisca.com
+     Name: lambda-events

@@ -1,0 +1,34 @@
+version: "2"
+deployment:
+  aws_account: "travel"
+  tribe: "hotel"
+sonarqube:
+  sonar_scanner_opts: "-Xmx2048m"
+scans:
+  checkmarx:
+    team_name: "/CxServerTravel-NextGen/Lodging"
+    # projectname will be filled with build.reponame from original YAML
+    projectname: "nextgen-hotel-events"
+build:
+  # platform will be filled from original YAML
+  platform: "dotnetcore"
+  # solution_file will be filled from original YAML
+  solution_file: "Tavisca.Hotel.Events.sln"
+  # reponame will be filled from original YAML
+  reponame: "nextgen-hotel-events"
+  # platform_version will be filled from original YAML
+  platform_version: "8.0"
+  code_coverage:
+    class_filter: null
+    assembly_filter: ""
+  # build_project_path is combined path+file from original YAML
+  build_project_path: "src/Tavisca.Hotel.ContentEventsLambda/Tavisca.Hotel.ContentEventsLambda.csproj"
+  # lambda_function_name is the key Lambda name from original YAML
+  lambda_function_name: "lambda-events"
+  lambda_function_handler: "LambdaTest::LambdaTest.LambdaHandler::handleRequest"
+  
+test:
+    report_generator_path: "src/Tavisca.Hotel.ContentEvents.Tests"
+    unit:
+        - test_project-1:
+            test_project_path: "src/Tavisca.Hotel.ContentEvents.Tests/Tavisca.Hotel.ContentEvents.Tests.csproj"

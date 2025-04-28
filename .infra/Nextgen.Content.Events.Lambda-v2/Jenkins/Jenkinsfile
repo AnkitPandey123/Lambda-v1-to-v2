@@ -1,0 +1,2 @@
+@Library("nextgen-jenkins-pipeline") _
+initLambdaPipeline(".infra/Nextgen.Content.Events.Lambda-v2/pipeline.yaml")
