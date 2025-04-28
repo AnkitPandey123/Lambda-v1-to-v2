@@ -14,7 +14,7 @@ build:
     assembly_filter: ""
   lambda:
     - build_project_Application-1:
-        name: "hotel-content-events-lambda"
+        name: "lambda-events"
         path: "src/Tavisca.Hotel.ContentEventsLambda"
         file: "Tavisca.Hotel.ContentEventsLambda.csproj"
 test:
